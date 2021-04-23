@@ -1,0 +1,15 @@
+.status {
+  font-size: 20px;
+  display: flex;
+  margin-left: 50px;
+  background-color: #4ec05d;
+  border-radius: 20px;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 10px 1px #dbdbdb;
+  font-weight: 400;
+  div {
+    color: #fff;
+  }
+}

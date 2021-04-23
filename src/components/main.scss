@@ -1,0 +1,18 @@
+@import '../fonts/fonts.css';
+@import './null.scss';
+
+* {
+    font-family: Nunito Sans;
+    color: #2e2e2e;
+}
+
+@import './app/app';
+@import './header/header';
+@import './toolbar/toolbar';
+@import './notesInner/notesInner';
+@import './noteItem/noteItem';
+@import './addNewBtn/addNewBtn';
+@import './status/status';
+@import './filter/filter';
+
+

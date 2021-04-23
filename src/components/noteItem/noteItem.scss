@@ -1,0 +1,18 @@
+.note__item {
+    height: 200px;
+    width: 200px;
+    padding: 15px;
+    margin: 20px;
+    background-color: #f8a426;
+    
+    box-shadow: 5px 5px 10px 1px #f3eab7;
+
+    .note__title {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .note__text {
+        margin-top: 20px;
+    }
+}
