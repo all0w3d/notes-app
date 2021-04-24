@@ -1,13 +1,19 @@
-import React, { Component } from 'react';
 
-class AddNewBtn extends Component {
-    render() {
-        return (
+import React from 'react';
+
+const AddNewBtn = ({onAdd}) => {
+
+ 
+ 
+
+    
+            return (
             <div className="button">
-                <button>Add New</button>
+                <button onClick={onAdd}>Add New</button>
             </div>
         );
-    }
+    
+    
 }
 
 export default AddNewBtn;

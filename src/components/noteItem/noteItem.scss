@@ -4,7 +4,7 @@
     padding: 15px;
     margin: 20px;
     background-color: #f8a426;
-    
+    overflow: hidden;
     box-shadow: 5px 5px 10px 1px #f3eab7;
 
     .note__title {
@@ -14,5 +14,6 @@
 
     .note__text {
         margin-top: 20px;
+        
     }
 }
