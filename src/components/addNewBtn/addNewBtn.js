@@ -1,19 +1,18 @@
+import React from "react";
 
-import React from 'react';
-
-const AddNewBtn = ({onAdd}) => {
-
- 
- 
-
-    
-            return (
-            <div className="button">
-                <button onClick={onAdd}>Add New</button>
-            </div>
-        );
-    
-    
-}
+const AddNewBtn = ({ onAdd, status }) => {
+  return (
+    <div className="button">
+      <button
+        onClick={(e) => {
+          onAdd();
+          status();
+        }}
+      >
+        Add New
+      </button>
+    </div>
+  );
+};
 
 export default AddNewBtn;

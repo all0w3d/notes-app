@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
+import React from "react";
 
-class Status extends Component {
-    render() {
-        return (
-            <div className="status">
-               <div>✔ Added Successfully!</div> 
-            </div>
-        );
-    }
-}
+const Status = (props) => {
+  return props.status ? (
+    <div className="status">
+      <div>✔ Added Successfully!</div>
+    </div>
+  ) : null;
+};
 
 export default Status;

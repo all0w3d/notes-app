@@ -7,22 +7,28 @@ class NoteItem extends Component {
     this.state = {
       title: this.props.item.title,
       text: this.props.item.text,
-      buttonName: "Change",
+      buttonName: "Edit",
+      buttonStyle: "blue",
       tempTitle: "",
       tempText: "",
     };
+
     this.change = this.change.bind(this);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
+    this.randomDeg = {
+      transform: `rotate(${Math.floor(Math.random() * 10) - 5}deg)`,
+    };
   }
 
   change() {
-    if (this.state.buttonName === "Change") {
+    if (this.state.buttonName === "Edit") {
       return this.setState(() => {
         const newTitle = (
-          <input
+          <textarea
             onChange={this.onChangeTitle}
             defaultValue={this.state.title}
+            autoFocus
           />
         );
         const newText = (
@@ -35,30 +41,38 @@ class NoteItem extends Component {
         return {
           title: newTitle,
           text: newText,
-          buttonName: "save",
+          buttonName: "Save",
+          buttonStyle: "green",
         };
       });
     }
 
-    return this.setState(() => {
+    return (
+      this.setState(() => {
+        let newTitle = this.state.tempTitle;
+        let newText = this.state.tempText;
 
-      let newTitle = this.state.tempTitle;
-      let newText = this.state.tempText;
-      
-      if (newTitle === "") {
-        newTitle = this.state.title.props.defaultValue
-      }
+        if (newTitle === "") {
+          newTitle = this.state.title.props.defaultValue;
+        }
 
-      if (newText === "") {
-        newText = this.state.text.props.defaultValue
-      }
-      console.log(newTitle)
-      return {
-        title: newTitle,
-        text: newText,
-        buttonName: "Change",
-      };
-    });
+        if (newText === "") {
+          newText = this.state.text.props.defaultValue;
+        }
+
+        return {
+          title: newTitle,
+          text: newText,
+          buttonName: "Edit",
+          buttonStyle: "blue",
+        };
+      }),
+      this.props.changeState(
+        this.state.tempTitle || this.props.item.title,
+        this.state.tempText || this.props.item.text,
+        this.props.item.id
+      )
+    );
   }
 
   onChangeTitle(e) {
@@ -83,10 +97,20 @@ class NoteItem extends Component {
 
   render() {
     return (
-      <div className="note__item">
-        <div className="note__title">{this.state.title}</div>
-        <div className="note__text">{this.state.text}</div>
-        <button onClick={this.change}>{this.state.buttonName}</button>
+      <div className="note__item" style={this.randomDeg}>
+        <div className="note__item-text">
+          <div className="note__title">{this.state.title}</div>
+          <div className="note__text">{this.state.text}</div>
+        </div>
+        <div className="note__btns">
+          <button
+            className={"note__btn " + this.state.buttonStyle}
+            onClick={this.change}
+          >
+            {this.state.buttonName}
+          </button>
+          <button onClick={() => this.props.delete(this.props.item.id)} className="note__btn note__btn-del">Remove</button>
+        </div>
       </div>
     );
   }

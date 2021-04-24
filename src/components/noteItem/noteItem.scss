@@ -1,19 +1,66 @@
 .note__item {
-    height: 200px;
-    width: 200px;
-    padding: 15px;
-    margin: 20px;
-    background-color: #f8a426;
-    overflow: hidden;
-    box-shadow: 5px 5px 10px 1px #f3eab7;
+  height: 200px;
+  width: 200px;
+  padding: 15px;
+  margin: 20px;
+  background-color: #f8a426;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px 1px #f3eab7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
 
-    .note__title {
-        font-size: 22px;
-        font-weight: bold;
-    }
+  textarea {
+    padding: 5px;
+    flex-wrap: wrap;
+    font-size: 20px;
+    line-height: 18px;
+    background-color: rgba(230, 230, 230, 0.336);
+    resize: none;
+    width: 100%;
+    border-radius: 5px;
+  }
 
-    .note__text {
-        margin-top: 20px;
-        
+  .note__title {
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+
+    textarea {
+      min-height: 50px;
     }
+  }
+
+  .note__text {
+    margin-top: 10px;
+    display: flex;
+    textarea {
+      min-height: 70px;
+      font-size: 13px;
+      line-height: 12px;
+    }
+  }
+
+  .note__btns {
+    display: flex;
+    justify-content: space-between;
+    .note__btn {
+      padding: 5px 10px;
+      align-self: flex-start;
+      border-radius: 10px;
+
+      color: white;
+      font-weight: 700;
+    }
+    .note__btn-del {
+      background-color: #e00000;
+    }
+  }
+}
+.blue {
+  background-color: #4966b6;
+}
+.green {
+  background-color: #00a000;
 }

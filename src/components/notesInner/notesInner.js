@@ -3,9 +3,10 @@ import NoteItem from "../noteItem/noteItem";
 
 const NotesInner = (props) => {
   const elements = props.notes.map((item) => {
+    
     return (
-      <div key = {item.id}>
-        <NoteItem item={item} />
+      <div key = {item.id} >
+        <NoteItem item={item} changeState={props.changeState} delete={props.delete}/>
       </div>
     );
   });
