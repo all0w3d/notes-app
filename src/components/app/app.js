@@ -51,7 +51,16 @@ class app extends Component {
     this.addItem = this.addItem.bind(this);
     this.changeStateAfterEditing = this.changeStateAfterEditing.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.deleteAll = this.deleteAll.bind(this);
     this.maxId = this.state.notes.length + 1;
+  }
+
+  deleteAll() {
+    this.setState(() => {
+      return {
+        notes: [],
+      };
+    });
   }
 
   addItem(title = "Add title...", text = "Add text...") {
@@ -66,6 +75,7 @@ class app extends Component {
 
       return {
         notes: newArr,
+        newItemAdded: true,
       };
     });
   }
@@ -105,12 +115,16 @@ class app extends Component {
     return (
       <div>
         <Header notesQ={this.state.notes.length} />
-        <Toolbar onAdd={this.addItem} />
-        <NotesInner
-          notes={this.state.notes}
-          changeState={this.changeStateAfterEditing}
-          delete={this.deleteItem}
-        />
+        <Toolbar onAdd={this.addItem} onDelete={this.deleteAll} />
+        {!this.state.notes.length < 1 ? (
+          <NotesInner
+            notes={this.state.notes}
+            changeState={this.changeStateAfterEditing}
+            delete={this.deleteItem}
+          />
+        ) : (
+          <div className="on__delete">Please add some notes... 😊</div>
+        )}
       </div>
     );
   }

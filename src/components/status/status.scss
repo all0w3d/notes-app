@@ -4,12 +4,22 @@
   margin-left: 50px;
   background-color: #4ec05d;
   border-radius: 20px;
-  width: 300px;
+  width: 50px;
   justify-content: center;
   align-items: center;
   box-shadow: 5px 5px 10px 1px #dbdbdb;
   font-weight: 400;
+  animation: animation 0.5s forwards;
+
   div {
     color: #fff;
+  }
+  @keyframes animation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }

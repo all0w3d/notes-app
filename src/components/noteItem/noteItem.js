@@ -24,19 +24,39 @@ class NoteItem extends Component {
   change() {
     if (this.state.buttonName === "Edit") {
       return this.setState(() => {
-        const newTitle = (
+        let newTitle = (
           <textarea
             onChange={this.onChangeTitle}
             defaultValue={this.state.title}
             autoFocus
           />
         );
-        const newText = (
+
+        let newText = (
           <textarea
             onChange={this.onChangeText}
             defaultValue={this.state.text}
           />
         );
+
+        if (this.state.title === "Add title...") {
+          newTitle = (
+            <textarea
+              onChange={this.onChangeTitle}
+              placeholder={this.state.title}
+              autoFocus
+            />
+          );
+        }
+
+        if (this.state.text === "Add text...") {
+          newText = (
+            <textarea
+              onChange={this.onChangeText}
+              placeholder={this.state.text}
+            />
+          );
+        }
 
         return {
           title: newTitle,
@@ -97,19 +117,27 @@ class NoteItem extends Component {
 
   render() {
     return (
-      <div className="note__item" style={this.randomDeg}>
-        <div className="note__item-text">
-          <div className="note__title">{this.state.title}</div>
-          <div className="note__text">{this.state.text}</div>
-        </div>
-        <div className="note__btns">
-          <button
-            className={"note__btn " + this.state.buttonStyle}
-            onClick={this.change}
-          >
-            {this.state.buttonName}
-          </button>
-          <button onClick={() => this.props.delete(this.props.item.id)} className="note__btn note__btn-del">Remove</button>
+      <div>
+        <div className="note__item" style={this.randomDeg}>
+          <div className="note__item-text">
+            <div className="note__title">{this.state.title}</div>
+            <div className="note__text">{this.state.text}</div>
+          </div>
+          <div className="note__btns">
+            <button
+              className={"note__btn " + this.state.buttonStyle}
+              onClick={this.change}
+            >
+              {this.state.buttonName}
+            </button>
+            <button
+              onClick={() => this.props.delete(this.props.item.id)}
+              className="note__btn note__btn-del"
+            >
+              Remove
+            </button>
+            
+          </div>
         </div>
       </div>
     );

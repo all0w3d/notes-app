@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import AddNewBtn from "../addNewBtn/addNewBtn";
+import AddNewBtn from "../btns/addNewBtn";
+import RemoveAllBtn from "../btns/removeAllBtn";
 import Filter from "../filter/filter";
 import Status from "../status/status";
 
@@ -26,7 +27,14 @@ class Toolbar extends Component {
   render() {
     return (
       <div className="toolbar__inner">
-        <AddNewBtn onAdd={() => this.props.onAdd()} status={this.statusShow} />
+        <div className="btns">
+          <AddNewBtn
+            onAdd={() => this.props.onAdd()}
+            status={this.statusShow}
+          />
+          <RemoveAllBtn onDelete={() => this.props.onDelete()} />
+        </div>
+
         <Status status={this.state.status} />
         <Filter />
       </div>
