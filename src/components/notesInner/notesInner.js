@@ -6,6 +6,7 @@ const NotesInner = (props) => {
     return (
       <div key={item.id}>
         <NoteItem
+          
           item={item}
           changeState={props.changeState}
           delete={props.delete}

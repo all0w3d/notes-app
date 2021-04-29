@@ -15,6 +15,7 @@ header {
     &:first-child {
       display: flex;
       align-items: center;
+      cursor: pointer;
 
       span {
         height: 25px;

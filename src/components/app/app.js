@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import axios from "axios";
 
 import "../main.scss";
 import Header from "../header/header";
@@ -14,36 +15,45 @@ class app extends Component {
           title: "Hello World",
           text:
             "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.  ",
+
+          date: "21.04.2021, 19:22",
           id: "1",
         },
         {
           title: "Lets Rock!",
           text:
             "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.  ",
+
+          date: "20.04.2021, 01:52",
           id: "2",
         },
         {
           title: "Good Morning",
           text:
             "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.  ",
+
+          date: "18.04.2021, 22:41",
           id: "3",
         },
         {
           title: "In the background ",
           text:
             "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.  ",
+          date: "17.04.2021, 13:11",
           id: "4",
         },
         {
           title: "Hey Brother",
           text:
             "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.  ",
+          date: "15.04.2021, 05:12",
           id: "5",
         },
         {
           title: "Like the speed of light",
           text:
             "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.  ",
+          date: "13.04.2021, 12:24",
           id: "6",
         },
       ],
@@ -53,6 +63,7 @@ class app extends Component {
     this.deleteItem = this.deleteItem.bind(this);
     this.deleteAll = this.deleteAll.bind(this);
     this.maxId = this.state.notes.length + 1;
+    
   }
 
   deleteAll() {

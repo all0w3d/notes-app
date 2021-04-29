@@ -18,6 +18,14 @@ class NoteItem extends Component {
     this.onChangeText = this.onChangeText.bind(this);
     this.randomDeg = {
       transform: `rotate(${Math.floor(Math.random() * 10) - 5}deg)`,
+      backgroundColor: [
+        "#f8a426",
+        "#66ffe0",
+        "#dbdbdb",
+        "#ccaeff",
+        "#ff8d8d",
+        "#b0eca3",
+      ][Math.floor(Math.random() * 6)],
     };
   }
 
@@ -39,7 +47,10 @@ class NoteItem extends Component {
           />
         );
 
-        if (this.state.title === "Add title...") {
+        if (
+          this.state.title === "Add title..." &&
+          this.state.text === "Add text..."
+        ) {
           newTitle = (
             <textarea
               onChange={this.onChangeTitle}
@@ -47,9 +58,6 @@ class NoteItem extends Component {
               autoFocus
             />
           );
-        }
-
-        if (this.state.text === "Add text...") {
           newText = (
             <textarea
               onChange={this.onChangeText}
@@ -119,9 +127,17 @@ class NoteItem extends Component {
     return (
       <div>
         <div className="note__item" style={this.randomDeg}>
-          <div className="note__item-text">
+          <div
+            className="note__item-text"
+            onClick={this.state.buttonName === "Edit" ? this.change : null}
+          >
             <div className="note__title">{this.state.title}</div>
             <div className="note__text">{this.state.text}</div>
+          </div>
+          <div className="date">
+            {this.props.item.date
+              ? this.props.item.date
+              : new Date().toLocaleString().slice(0, -3)}
           </div>
           <div className="note__btns">
             <button
@@ -136,7 +152,6 @@ class NoteItem extends Component {
             >
               Remove
             </button>
-            
           </div>
         </div>
       </div>

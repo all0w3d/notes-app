@@ -65,3 +65,12 @@
   background-color: #00a000;
 }
 
+.date {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.note__item-text {
+  flex: 100%;
+  overflow: hidden;
+}
